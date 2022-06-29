@@ -15,41 +15,41 @@
 
 Fixed::Fixed(void)
 {
-    std::cout << "Default constructor called" << std::endl;
+    //std::cout << "Default constructor called" << std::endl;
     this->_value = 0;
     return ;
 }
 
 Fixed::Fixed(const Fixed &obj)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    //std::cout << "Copy constructor called" << std::endl;
     *this = obj;
     return ;
 }
 
 Fixed::Fixed(const int n)
 {
-    std::cout << "Int constructor called" <<std::endl;
+    //std::cout << "Int constructor called" <<std::endl;
     this->_value = n << this->_bits;
     return ;
 }
 
 Fixed::Fixed(const float n)
 {
-    std::cout << "Float constructor called" << std::endl;
+    //std::cout << "Float constructor called" << std::endl;
     this->_value = roundf(n * (1 << this->_bits));
     return ;
 }
 
 Fixed::~Fixed(void)
 {
-    std::cout << "Destructor called" << std::endl;
+    //std::cout << "Destructor called" << std::endl;
     return ;
 }
 
 int    Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
+    //std::cout << "getRawBits member function called" << std::endl;
     return (this->_value);
 }
 
@@ -60,7 +60,7 @@ void    Fixed::setRawBits(int const raw)
 
 Fixed   &Fixed::operator=(const Fixed &obj)
 {
-    std::cout << "Copy assignement coperator called" << std::endl;
+    //std::cout << "Copy assignement coperator called" << std::endl;
     this->_value = obj.getRawBits();
     return (*this);
 }
@@ -127,6 +127,32 @@ Fixed   Fixed::operator/(const Fixed &obj)
     return (ret);
 }
 
+Fixed   Fixed::operator++(void)
+{
+    this->_value++;
+    return (*this);
+}
+
+Fixed   Fixed::operator++(int)
+{
+    Fixed   ret = *this;
+    this->_value++;
+    return (ret);
+}
+
+Fixed   Fixed::operator--(void)
+{
+    this->_value--;
+    return (*this);
+}
+
+Fixed   Fixed::operator--(int)
+{
+    Fixed   ret = *this;
+    this->_value--;
+    return (ret);
+}
+
 std::ostream &operator<<(std::ostream &out, Fixed const &value)
 {
     out << value.toFloat();
@@ -143,3 +169,30 @@ int     Fixed::toInt(void) const
     return (roundf(this->_value >> this->_bits));
 }
 
+Fixed   &Fixed::min(Fixed &a, Fixed &b)
+{
+    if (a < b)
+        return (a);
+    return (b);
+}
+
+Fixed const &Fixed::min(Fixed const &a, Fixed const &b)
+{
+    if (a < b)
+        return (a);
+    return (b);
+}
+
+Fixed   &Fixed::max(Fixed &a, Fixed &b)
+{
+    if (a > b)
+        return (a);
+    return (b);
+}
+
+Fixed const &Fixed::max(Fixed const &a, Fixed const &b)
+{
+    if (a > b)
+        return (a);
+    return (b);
+}

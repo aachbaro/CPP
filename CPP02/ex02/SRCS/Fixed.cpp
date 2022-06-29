@@ -114,8 +114,16 @@ Fixed   Fixed::operator-(const Fixed &obj)
 Fixed   Fixed::operator*(const Fixed &obj)
 {
     Fixed   ret;
-    
+
     ret.setRawBits(((long)this->getRawBits() * (long)obj.getRawBits()) / (1 << this->_bits));
+    return (ret);
+}
+
+Fixed   Fixed::operator/(const Fixed &obj)
+{
+    Fixed   ret;
+    
+    ret.setRawBits(((long)this->getRawBits() * (1 << this->_bits) / (long)obj.getRawBits()));
     return (ret);
 }
 

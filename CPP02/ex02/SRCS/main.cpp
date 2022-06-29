@@ -16,10 +16,10 @@
 
 int main(void)
 {
-    Fixed   a(100.43f);
-    Fixed   b(1000.0f);
+    Fixed   a(2.43f);
+    Fixed   b(20.0f);
 
-    std::cout << b * a << std::endl;
+    std::cout << b / a << std::endl;
     return (0);
 }
 

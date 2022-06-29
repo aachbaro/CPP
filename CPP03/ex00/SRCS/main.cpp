@@ -17,9 +17,15 @@ int main(void)
 {
     ClapTrap    robot("Pablo");
 
+    std::cout << "Pablo ep : " << robot.getEP() << std::endl;
+    std::cout << "Pablo HP : " << robot.getHP() << std::endl;
     robot.attack("Pietro");
-    robot.beRepaired(2);
     robot.takeDamage(2);
-    return (0);   
+    std::cout << "Pablo ep : " << robot.getEP() << std::endl;
+    std::cout << "Pablo HP : " << robot.getHP() << std::endl;
+    robot.beRepaired(2);
+    std::cout << "Pablo ep : " << robot.getEP() << std::endl;
+    std::cout << "Pablo HP : " << robot.getHP() << std::endl;
+    return (0);
 }
 

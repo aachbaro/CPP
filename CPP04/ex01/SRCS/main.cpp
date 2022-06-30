@@ -16,31 +16,42 @@
 #include "../INC/Dog.hpp"
 #include "../INC/Cat.hpp"
 #include "../INC/WrongCat.hpp"
+#include "../INC/Brain.hpp"
 
 int main(void)
 {
-    const Animal* rAnim = new Animal();
-    const WrongAnimal* WrongrAnim = new WrongAnimal();
-    const Animal* klebs = new Dog();
-    const Animal* chat = new Cat();
-    const WrongAnimal* Wrongchat = new WrongCat();
+    Animal  *tab[6];
+    Brain   *everyCatsBrain;
+    Brain   *everyDogsBrain;
+    int     i(0);
 
-    std::cout << "random beast : ";
-    rAnim->makeSound();
-    std::cout << "random Wrongbeast : ";
-    WrongrAnim->makeSound();
-    std::cout << "Chat : ";
-    chat->makeSound();
-    std::cout << "WrongChat : ";
-    Wrongchat->makeSound();
-    std::cout << "Klebar : ";
-    klebs->makeSound();
+    everyCatsBrain->setIdea(0, "Im a cat");
+    everyCatsBrain->setIdea(1, "shut your mouse");
+    everyDogsBrain->setIdea(0, "Im a dogo");
+    everyDogsBrain->setIdea(1, "I want wafwaffle");
+    while (i < 3)
+    {
+        tab[i] = new Cat();
+        *tab[i]->setBrain(*everyCatsBrain);
+        i++;
+    }
+    while (i < 6)
+    {
+        tab[i] = new Dog();
+        *tab[i]->setBrain(*everyDogsBrain);
+        i++;
+    }
+    i = 0;
+    while (i < 6)
+    {
+        std::cout << i << " : "<< *tab[i]->getBrain().getIdea(i) << std::endl;
+        i++;
+    }
+    i = 0;
+    while (i < 0)
+        delete tab[i];
 
-    delete rAnim;
-    delete WrongrAnim;
-    delete chat;
-    delete Wrongchat;
-    delete klebs;
+
     return (0);
 }
 

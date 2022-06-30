@@ -53,5 +53,15 @@ void    Animal::makeSound(void) const
     std::cout << "Typical animal sound" << std::endl;
 }
 
+Brain           Aminal::getBrain(void) const
+{
+    return ;
+}
+
+void            Animal::setBrain(Brain newBrain)
+{
+    return ;
+}
+
 
 

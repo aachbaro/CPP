@@ -15,8 +15,13 @@
 # include <string.h>
 # include <iostream>
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Cat : public Animal {
+
+private :
+
+    Brain*  _brain;
 
 public :
 
@@ -27,6 +32,8 @@ public :
     Cat   &operator=(const Cat &obj);
 
     virtual void    makeSound(void) const;
+    virtual Brain           getBrain(void) const;
+    virtual void            setBrain(Brain newBrain);
 };
 
 #endif

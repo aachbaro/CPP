@@ -16,6 +16,7 @@ Dog::Dog(void)
 {
     std::cout << "Dog default constructor called" << std::endl;
     this->setType("Dog");
+    this->_brain = new Brain();
     return ;
 }
 
@@ -29,6 +30,7 @@ Dog::Dog(const Dog &obj)
 Dog::~Dog(void)
 {
     std::cout << "Dog destructor called" << std::endl;
+    delete this->_brain;
     return ;
 }
 
@@ -36,12 +38,23 @@ Dog   &Dog::operator=(const Dog &obj)
 {
     std::cout << "Dog copy assignement coperator called" << std::endl;
     this->_type = obj.getType();
+    *this->_brain = obj.getBrain();
     return (*this);
 }
 
 void    Dog::makeSound(void) const
 {
     std::cout << "WafeWafe" << std::endl;
+}
+
+Brain   Dog::getBrain(void) const
+{
+    return (*this->_brain);
+}
+
+void   Dog::setBrain(Brain newBrain)
+{
+    *this->_brain = newBrain;
 }
 
 

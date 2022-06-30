@@ -39,6 +39,11 @@ Cat   &Cat::operator=(const Cat &obj)
     return (*this);
 }
 
+void    Cat::makeSound(void) const
+{
+    std::cout << "MeouMeou" << std::endl;
+}
+
 
 
 

@@ -39,5 +39,10 @@ Dog   &Dog::operator=(const Dog &obj)
     return (*this);
 }
 
+void    Dog::makeSound(void) const
+{
+    std::cout << "WafeWafe" << std::endl;
+}
+
 
 

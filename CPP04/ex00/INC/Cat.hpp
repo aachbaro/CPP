@@ -25,6 +25,8 @@ public :
     ~Cat(void);
 
     Cat   &operator=(const Cat &obj);
+
+    virtual void    makeSound(void) const;
 };
 
 #endif

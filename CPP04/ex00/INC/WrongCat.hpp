@@ -25,6 +25,8 @@ public :
     ~WrongCat(void);
 
     WrongCat   &operator=(const WrongCat &obj);
+
+    void    makeSound(void) const;
 };
 
 #endif

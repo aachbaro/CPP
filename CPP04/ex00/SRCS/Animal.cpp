@@ -50,12 +50,7 @@ void    Animal::setType(const std::string &type)
 
 void    Animal::makeSound(void) const
 {
-    if (!this->getType().compare("Dog"))
-        std::cout << "WafeWafe" << std::endl;
-    else if (!this->getType().compare("Cat"))
-        std::cout << "MeouMeou" << std::endl;
-    else
-        std::cout << "Unknown type" << std::endl;
+    std::cout << "Typical animal sound" << std::endl;
 }
 
 

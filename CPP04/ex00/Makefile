@@ -9,7 +9,7 @@ SRCS		= SRCS/main.cpp \
 				SRCS/WrongAnimal.cpp \
 				SRCS/WrongCat.cpp
 CC			= c++
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
+CFLAGS		= -Wall #-Wextra -Werror -std=c++98
 
 all: $(NAME)
 $(NAME): $(SRCSDIR)/$(SRCS)

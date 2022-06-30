@@ -19,32 +19,28 @@
 
 int main(void)
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+    const Animal* rAnim = new Animal();
+    const WrongAnimal* WrongrAnim = new WrongAnimal();
+    const Animal* klebs = new Dog();
+    const Animal* chat = new Cat();
+    const WrongAnimal* Wrongchat = new WrongCat();
 
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
-    delete meta;
-    delete j;
-    delete i;
+    std::cout << "random beast : ";
+    rAnim->makeSound();
+    std::cout << "random Wrongbeast : ";
+    WrongrAnim->makeSound();
+    std::cout << "Chat : ";
+    chat->makeSound();
+    std::cout << "WrongChat : ";
+    Wrongchat->makeSound();
+    std::cout << "Klebar : ";
+    klebs->makeSound();
 
-    std::cout << "\n\nWrong animal part" << std::endl;
-    const WrongAnimal* beta = new WrongAnimal();
-    const Animal* k = new Dog();
-    const WrongAnimal* p = new WrongCat();
-
-    std::cout << k->getType() << " " << std::endl;
-    std::cout << p->getType() << " " << std::endl;
-    p->makeSound(); //will output the wrong cat sound!
-    k->makeSound();
-    beta->makeSound();
-    delete beta;
-    delete k;
-    delete p;
+    delete rAnim;
+    delete WrongrAnim;
+    delete chat;
+    delete Wrongchat;
+    delete klebs;
     return (0);
 }
 

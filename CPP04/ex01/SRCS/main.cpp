@@ -20,38 +20,45 @@
 
 int main(void)
 {
-    Animal  *tab[6];
-    Brain   *everyCatsBrain;
-    Brain   *everyDogsBrain;
+    Animal      *zoo[4];
+    Animal      *cpy = new Cat();
+
     int     i(0);
 
-    everyCatsBrain->setIdea(0, "Im a cat");
-    everyCatsBrain->setIdea(1, "shut your mouse");
-    everyDogsBrain->setIdea(0, "Im a dogo");
-    everyDogsBrain->setIdea(1, "I want wafwaffle");
-    while (i < 3)
+    while (i < 4)
     {
-        tab[i] = new Cat();
-        *tab[i]->setBrain(*everyCatsBrain);
-        i++;
-    }
-    while (i < 6)
-    {
-        tab[i] = new Dog();
-        *tab[i]->setBrain(*everyDogsBrain);
-        i++;
-    }
-    i = 0;
-    while (i < 6)
-    {
-        std::cout << i << " : "<< *tab[i]->getBrain().getIdea(i) << std::endl;
+        if (i < 2)
+        {
+            zoo[i] = new Cat();
+            zoo[i]->getBrain()->setIdea(0, "Im a cat");
+            zoo[i]->getBrain()->setIdea(1, "shut your mouse");
+        }
+        else
+        {
+            zoo[i] = new Dog();
+            zoo[i]->getBrain()->setIdea(0, "Im a dogo");
+            zoo[i]->getBrain()->setIdea(1, "I want wafwaffle");
+        }
         i++;
     }
     i = 0;
-    while (i < 0)
-        delete tab[i];
-
-
+    while (i < 4)
+    {
+        std::cout << zoo[i]->getBrain()->getIdea(0) << std::endl;
+        i++;
+    }
+    std::cout << "\ntest de copy : " << std::endl;
+    *cpy = *zoo[1];
+    std::cout << cpy->getBrain()->getIdea(1) << std::endl;
+    std::cout << cpy->getType() << std::endl;
+    cpy->makeSound();
+    i = 0;
+    std::cout << "delete du tableau" << std::endl;
+    while (i < 4)
+    {
+        delete zoo[i];
+        i++;
+    }
     return (0);
 }
 

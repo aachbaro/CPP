@@ -38,7 +38,8 @@ Cat   &Cat::operator=(const Cat &obj)
 {
     std::cout << "Cat copy assignement coperator called" << std::endl;
     this->_type = obj.getType();
-    *this->_brain = obj.getBrain();
+    this->_brain = new Brain;
+    *this->_brain = *obj.getBrain();
     return (*this);
 }
 
@@ -47,9 +48,9 @@ void    Cat::makeSound(void) const
     std::cout << "MeouMeou" << std::endl;
 }
 
-Brain   Cat::getBrain(void) const
+Brain   *Cat::getBrain(void) const
 {
-    return (*this->_brain);
+    return (this->_brain);
 }
 
 void    Cat::setBrain(Brain newBrain)

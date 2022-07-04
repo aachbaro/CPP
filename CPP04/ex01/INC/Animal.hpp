@@ -28,12 +28,12 @@ public :
     Animal(const Animal &obj);
     virtual ~Animal(void);
 
-    Animal   &operator=(const Animal &obj);
+    virtual Animal   &operator=(const Animal &obj);
 
     std::string getType(void) const;
     void        setType(const std::string &type);
     virtual void    makeSound(void) const;
-    virtual Brain           getBrain(void) const;
+    virtual Brain           *getBrain(void) const;
     virtual void            setBrain(Brain newBrain);
 };
 

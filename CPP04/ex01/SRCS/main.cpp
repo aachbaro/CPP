@@ -21,10 +21,9 @@
 int main(void)
 {
     Animal      *zoo[4];
-    Animal      *cpy = new Cat();
 
     int     i(0);
-
+    std::cout << "CREATION D'UN TAB D'ANIMAUX" << std::endl;
     while (i < 4)
     {
         if (i < 2)
@@ -42,23 +41,38 @@ int main(void)
         i++;
     }
     i = 0;
+    std::cout << "\nIDEAS DES ANIMAUX" << std::endl;
     while (i < 4)
     {
         std::cout << zoo[i]->getBrain()->getIdea(0) << std::endl;
         i++;
     }
-    std::cout << "\ntest de copy : " << std::endl;
-    *cpy = *zoo[1];
-    std::cout << cpy->getBrain()->getIdea(1) << std::endl;
-    std::cout << cpy->getType() << std::endl;
-    cpy->makeSound();
     i = 0;
-    std::cout << "delete du tableau" << std::endl;
+    std::cout << "\nDELETE DU TABLEAU" << std::endl;
     while (i < 4)
     {
         delete zoo[i];
         i++;
     }
+
+    Cat         *src = new Cat;
+    Cat         *cpy = new Cat;
+
+    std::cout << "\nTEST DE COPY : " << std::endl;
+    src->getBrain()->setIdea(0, "Im a cat");
+    src->getBrain()->setIdea(1, "shut your mouse");
+    *cpy = *src;
+    std::cout << cpy->getBrain()->getIdea(1) << std::endl;
+    std::cout << cpy->getType() << std::endl;
+    cpy->makeSound();
+    i = 0;
+    std::cout << "\nSUP DE SRC" << std::endl;
+    delete src;
+    std::cout << "\nCPY EXISTE TOUJOURS" << std::endl;
+    std::cout << cpy->getBrain()->getIdea(1) << std::endl;
+    std::cout << cpy->getType() << std::endl;
+    cpy->makeSound();
+    delete cpy;
     return (0);
 }
 

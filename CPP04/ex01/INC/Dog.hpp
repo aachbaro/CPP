@@ -29,11 +29,10 @@ public :
     Dog(const Dog &obj);
     ~Dog(void);
 
-    virtual Dog   &operator=(const Dog &obj);
+    Dog   &operator=(const Dog &obj);
 
     virtual void    makeSound(void) const;
-    Brain           *getBrain(void) const;
-    void            setBrain(Brain newBrain);
+    virtual Brain   *getBrain(void) const;
 };
 
 #endif

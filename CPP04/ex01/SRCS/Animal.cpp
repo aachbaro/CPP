@@ -59,9 +59,4 @@ Brain   *Animal::getBrain(void) const
     return (cervo);
 }
 
-void    Animal::setBrain(Brain newBrain)
-{
-    return ;
-}
-
 

@@ -29,11 +29,10 @@ public :
     Cat(const Cat &obj);
     ~Cat(void);
 
-    virtual Cat   &operator=(const Cat &obj);
+    Cat   &operator=(const Cat &obj);
 
     virtual void    makeSound(void) const;
-    virtual Brain           *getBrain(void) const;
-    virtual void            setBrain(Brain newBrain);
+    virtual Brain   *getBrain(void) const;
 };
 
 #endif

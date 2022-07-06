@@ -12,13 +12,17 @@
 
 #include "../INC/Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void)
+Bureaucrat::Bureaucrat(void) : _name(""), _grade(150)
 {
     std::cout << "Bureaucrat default constructor called" << std::endl;
     return ;
 }
 
-Bureacray
+Bureaucrat::Bureaucrat(std::string const &name, unsigned int grade) : _name(name)
+{
+    this->_grade = grade;
+    this->checkGrade();
+}
 
 Bureaucrat::Bureaucrat(const Bureaucrat &obj)
 {
@@ -36,10 +40,34 @@ Bureaucrat::~Bureaucrat(void)
 Bureaucrat   &Bureaucrat::operator=(const Bureaucrat &obj)
 {
     std::cout << "Bureaucrat copy assignement coperator called" << std::endl;
-    this->_type = obj.getType();
+
     return (*this);
 }
 
+const std::string &Bureaucrat::getName() const {
+    return (this->_name);
+}
 
+unsigned int    Bureaucrat::getGrade() const {
+    return (this->_grade);
+}
 
+void        Bureaucrat::checkGrade(void)
+{
+    if (this->_grade > 150)
+        throw GradetooLowException();
+    if (this->_grade < 1)
+        throw GradetooHighException();
+}
 
+void    Bureaucrat::upgrade()
+{
+    this->_grade--;
+    this->checkGrade();
+}
+
+void    Bureaucrat::downgrade()
+{
+    this->_grade++;
+    this->checkGrade();
+}

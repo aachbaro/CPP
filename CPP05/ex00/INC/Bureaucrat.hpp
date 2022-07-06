@@ -22,12 +22,12 @@ private :
     std::string const   _name;
     unsigned int        _grade;
 
-    class E_GradetooHigh : public std::exception {
+    class GradetooHighException : public std::exception {
     public :
         virtual const char* what() const throw() 
         {return ("Grade too high");}
     };
-    class E_GradetooLow : public std::exception {
+    class GradetooLowException : public std::exception {
     public :
         virtual const char* what() const throw()
         {return ("Grade too low");}
@@ -42,10 +42,11 @@ public :
 
     Bureaucrat   &operator=(const Bureaucrat &obj);
 
-    std::string const   &getName() const;
-    int                 &getGrade() const;
+    const std::string   &getName() const;
+    unsigned int        getGrade() const;
     void                upgrade();
     void                downgrade();
+    void                checkGrade();
 };
 
 #endif

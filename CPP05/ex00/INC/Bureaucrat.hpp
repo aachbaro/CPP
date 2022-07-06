@@ -49,6 +49,8 @@ public :
     void                checkGrade();
 };
 
+std::ostream    &operator<<(std::ostream &out, Bureaucrat const &dude);
+
 #endif
 
 

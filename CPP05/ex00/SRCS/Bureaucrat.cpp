@@ -20,6 +20,7 @@ Bureaucrat::Bureaucrat(void) : _name(""), _grade(150)
 
 Bureaucrat::Bureaucrat(std::string const &name, unsigned int grade) : _name(name)
 {
+    std::cout << "Bureaucrat constructor called" << std::endl;
     this->_grade = grade;
     this->checkGrade();
 }
@@ -40,7 +41,8 @@ Bureaucrat::~Bureaucrat(void)
 Bureaucrat   &Bureaucrat::operator=(const Bureaucrat &obj)
 {
     std::cout << "Bureaucrat copy assignement coperator called" << std::endl;
-
+    std::cout << "name cannot be assigned" << std::endl;
+    this->_grade = obj._grade;
     return (*this);
 }
 
@@ -70,4 +72,11 @@ void    Bureaucrat::downgrade()
 {
     this->_grade++;
     this->checkGrade();
+}
+
+std::ostream    &operator<<(std::ostream &out, Bureaucrat const &dude)
+{
+    out << "name : " << dude.getName() << "\ngrade : " << dude.getGrade();
+    return (out);
+
 }

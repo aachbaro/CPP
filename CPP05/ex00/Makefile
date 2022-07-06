@@ -1,13 +1,9 @@
-NAME		= Animal
+NAME		= Bureaucrat
 SRCSDIR		= .
 OBJSDIR		= objs
 INCLUDES	= .
 SRCS		= SRCS/main.cpp \
-				SRCS/Dog.cpp \
-				SRCS/Cat.cpp \
-				SRCS/Animal.cpp \
-				SRCS/WrongAnimal.cpp \
-				SRCS/WrongCat.cpp
+				SRCS/Bureaucrat.cpp
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 

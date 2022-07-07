@@ -16,14 +16,16 @@
 # include <iostream>
 # include "Bureaucrat.hpp"
 
+class Bureaucrat ;
+
 class Form {
 
 private :
 
     std::string const   _name;
     bool                _signed;
-    unsigned int        _requiredGradeToSign;
-    unsigned int        _requiredGradeToExec;
+    unsigned int const  _requiredGradeToSign;
+    unsigned int const  _requiredGradeToExec;
 
     class GradetooHighException : public std::exception {
     public :
@@ -52,7 +54,6 @@ public :
 
     void                checkGrade();
     void                beSigned(Bureaucrat &dude);
-    
 };
 
 std::ostream    &operator<<(std::ostream &out, Form const &obj);

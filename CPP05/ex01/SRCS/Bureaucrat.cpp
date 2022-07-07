@@ -74,8 +74,25 @@ void    Bureaucrat::downgrade()
     this->checkGrade();
 }
 
+void    Bureaucrat::signForm(Form &obj)
+{
+    if (this->_grade <= obj.getReqGradToSign() && !obj.isSigned())
+    {
+        obj.beSigned(*this);
+        std::cout << this->_name << " signed " << obj.getName() << std::endl;
+    }
+    else if (!obj.isSigned())
+        std::cout << this->_name << " couldn't sign " << obj.getName() << " because he hasn't the required grade" << std::endl;
+    else
+        std::cout << this->_name << " couldn't sign " << obj.getName() << " because the form is already signed" << std::endl;
+
+}
+
 std::ostream    &operator<<(std::ostream &out, Bureaucrat const &dude)
 {
-    out << "name : " << dude.getName() << "\ngrade : " << dude.getGrade();
+    out << "________________________________\n";
+    out << "Bureaucrat : " << dude.getName() << "\ngrade : " << dude.getGrade();
+    out << "\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n";
+
     return (out);
 }

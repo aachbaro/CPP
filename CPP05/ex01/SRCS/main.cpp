@@ -12,19 +12,24 @@
 
 #include <iostream>
 #include "../INC/Bureaucrat.hpp"
+#include "../INC/Form.hpp"
 
 int main(void)
 {
     try
     {
         Bureaucrat  pietro("pietro", 150);
+        Bureaucrat  pablo("pablo", 1);
+        Form        accept("Formulaire d'acceptation", 42, 24);
 
-        std::cout << pietro << std::endl;
-        pietro.upgrade();
-        std::cout << pietro << std::endl;
-        pietro.downgrade();
-        std::cout << pietro << std::endl;
-        pietro.downgrade();
+        std::cout << std::endl;
+        std::cout << accept << pietro << pablo << std::endl;
+        pietro.signForm(accept);
+        pablo.signForm(accept);
+        std::cout << "\n" << accept << std::endl;
+        pablo.signForm(accept);
+        accept.beSigned(pietro);
+
     }
     catch(const std::exception& e)
     {
@@ -32,4 +37,3 @@ int main(void)
     }
     return (0);
 }
-

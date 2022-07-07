@@ -14,6 +14,9 @@
 # define BUREAUCRAT_HPP
 # include <string.h>
 # include <iostream>
+# include "Form.hpp"
+
+class Form ;
 
 class Bureaucrat {
 
@@ -47,6 +50,8 @@ public :
     void                upgrade();
     void                downgrade();
     void                checkGrade();
+    void                signForm(Form &obj);
+
 };
 
 std::ostream    &operator<<(std::ostream &out, Bureaucrat const &dude);

@@ -12,28 +12,24 @@
 
 #include "../INC/Form.hpp"
 
-Form::Form(void) : _name(""), _signed(0)
+Form::Form(void) : _name(""), _signed(0), _requiredGradeToSign(150), _requiredGradeToExec(150)
 {
     std::cout << "Form default constructor called" << std::endl;
-    _requiredGradeToSign = 150;
-    _requiredGradeToExec = 150;
     return ;
 }
 
-Form::Form(std::string const &name, unsigned int sign, unsigned int exe) : _name(name)
+Form::Form(std::string const &name, unsigned int sign, unsigned int exe) : _name(name), _requiredGradeToSign(sign), _requiredGradeToExec(exe)
 {
     std::cout << "Form constructor called" << std::endl;
     _signed = 0;
-    _requiredGradeToSign = sign;
-    _requiredGradeToExec = exe;
     this->checkGrade();
 
 }
 
-Form::Form(const Form &obj)
+Form::Form(const Form &obj) : _name(obj._name), _requiredGradeToSign(obj._requiredGradeToSign), _requiredGradeToExec(obj._requiredGradeToExec)
 {
     std::cout << "Form copy constructor called" << std::endl;
-    *this = obj;
+    this->_signed = obj._signed;
     return ;
 }
 
@@ -46,10 +42,8 @@ Form::~Form(void)
 Form   &Form::operator=(const Form &obj)
 {
     std::cout << "Form copy assignement coperator called" << std::endl;
-    std::cout << "_name cannot be assigned" << std::endl;
+    std::cout << "_name and grade required cannot be assigned cannot be assigned" << std::endl;
     this->_signed = obj._signed;
-    this->_requiredGradeToSign = obj._requiredGradeToSign;
-    this->_requiredGradeToExec = obj._requiredGradeToExec;
     return (*this);
 }
 
@@ -71,13 +65,15 @@ unsigned int    Form::getReqGradToExec() const {
 
 std::ostream    &operator<<(std::ostream &out, Form const &obj)
 {
+    out << "________________________________\n";
     out << "Form : " << obj.getName() << "\n";
-    out << "Grade " << obj.getReqGradToSign() << "required to sign\n";
-    out << "Grade " << obj.getReqGradToExec() << "required to execute\n";
+    out << "Grade " << obj.getReqGradToSign() << " required to sign\n";
+    out << "Grade " << obj.getReqGradToExec() << " required to execute\n";
     if (obj.isSigned())
         out << "Signed\n";
     else
         out << "Not signed\n";
+    out << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n";
     return (out);
 }
 
@@ -95,8 +91,10 @@ void            Form::checkGrade(void)
 
 void    Form::beSigned(Bureaucrat &dude)
 {
-    if (dude.getGrade() < this->_requiredGradeToSign)
-    ;
+    if (dude.getGrade() <= this->_requiredGradeToSign)
+        this->_signed = 1;
+    else
+        throw GradetooLowException();
 }
 
 

@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 # include <string.h>
 # include <iostream>
 # include "Form.hpp"
 
 class Bureaucrat ;
 
-class ShrubberyCreationForm : public AForm {
+class PresidentialPardonForm : public AForm {
 
 private :
 
@@ -26,13 +26,15 @@ private :
 
 public :
 
-    ShrubberyCreationForm(void);
-    ShrubberyCreationForm(std::string const &target);
-    ShrubberyCreationForm(const ShrubberyCreationForm &obj);
-    virtual ~ShrubberyCreationForm(void);
-    ShrubberyCreationForm   &operator=(const ShrubberyCreationForm &obj);
+    PresidentialPardonForm(void);
+    PresidentialPardonForm(std::string const &target);
+    PresidentialPardonForm(const PresidentialPardonForm &obj);
+    virtual ~PresidentialPardonForm(void);
+    PresidentialPardonForm   &operator=(const PresidentialPardonForm &obj);
 
     virtual void        execute(Bureaucrat const & executor) const;
 };
 
 #endif
+
+

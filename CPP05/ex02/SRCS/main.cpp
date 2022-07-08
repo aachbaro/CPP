@@ -13,27 +13,32 @@
 #include <iostream>
 #include "../INC/Bureaucrat.hpp"
 #include "../INC/Form.hpp"
+#include "../INC/ShrubberyCreationForm.hpp"
+#include "../INC/RobotomyRequestForm.hpp"
+#include "../INC/PresidentialPardonForm.hpp"
 
 int main(void)
 {
+    AForm       *prout = new PresidentialPardonForm("Blender");
+    AForm       *shrub = new ShrubberyCreationForm("Arbustes");
     try
     {
         Bureaucrat  pietro("pietro", 150);
         Bureaucrat  pablo("pablo", 1);
-        Form        accept("Formulaire d'acceptation", 42, 24);
 
-        std::cout << std::endl;
-        std::cout << accept << pietro << pablo << std::endl;
-        pietro.signForm(accept);
-        pablo.signForm(accept);
-        std::cout << "\n" << accept << std::endl;
-        pablo.signForm(accept);
-        accept.beSigned(pietro);
-
+        std::cout << *prout << std::endl;
+        pablo.signForm(*prout);
+        pietro.signForm(*shrub);
+        pablo.signForm(*shrub);
+        pietro.executeForm(*prout);
+        pablo.executeForm(*prout);
+        pablo.executeForm(*shrub);
+        delete prout;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
+        delete prout;
     }
     return (0);
 }

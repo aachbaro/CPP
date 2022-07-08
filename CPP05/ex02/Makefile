@@ -4,7 +4,10 @@ OBJSDIR		= objs
 INCLUDES	= .
 SRCS		= SRCS/main.cpp \
 				SRCS/Bureaucrat.cpp \
-				SRCS/Form.cpp
+				SRCS/Form.cpp \
+				SRCS/ShrubberyCreationForm.cpp \
+				SRCS/RobotomyRequestForm.cpp \
+				SRCS/PresidentialPardonForm.cpp
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 

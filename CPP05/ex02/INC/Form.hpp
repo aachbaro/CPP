@@ -14,6 +14,9 @@
 # define FORM_HPP
 # include <string.h>
 # include <iostream>
+# include <fstream>
+# include <cstdlib>
+# include <ctime>
 # include "Bureaucrat.hpp"
 
 class Bureaucrat ;
@@ -53,7 +56,7 @@ public :
 
     AForm(void);
     AForm(std::string const &name, unsigned int sign, unsigned int exe);
-    AForm(const Form &obj);
+    AForm(const AForm &obj);
     virtual ~AForm(void);
     AForm   &operator=(const AForm &obj);
 

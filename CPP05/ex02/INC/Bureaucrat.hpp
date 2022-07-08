@@ -16,7 +16,7 @@
 # include <iostream>
 # include "Form.hpp"
 
-class Form ;
+class AForm ;
 
 class Bureaucrat {
 
@@ -50,7 +50,8 @@ public :
     void                upgrade();
     void                downgrade();
     void                checkGrade();
-    void                signForm(Form &obj);
+    void                signForm(AForm &obj);
+    void                executeForm(AForm const &form);
 
 };
 

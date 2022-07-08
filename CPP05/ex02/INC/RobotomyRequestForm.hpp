@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 # include <string.h>
 # include <iostream>
 # include "Form.hpp"
 
 class Bureaucrat ;
 
-class ShrubberyCreationForm : public AForm {
+class RobotomyRequestForm : public AForm {
 
 private :
 
@@ -26,13 +26,14 @@ private :
 
 public :
 
-    ShrubberyCreationForm(void);
-    ShrubberyCreationForm(std::string const &target);
-    ShrubberyCreationForm(const ShrubberyCreationForm &obj);
-    virtual ~ShrubberyCreationForm(void);
-    ShrubberyCreationForm   &operator=(const ShrubberyCreationForm &obj);
+    RobotomyRequestForm(void);
+    RobotomyRequestForm(std::string const &target);
+    RobotomyRequestForm(const RobotomyRequestForm &obj);
+    virtual ~RobotomyRequestForm(void);
+    RobotomyRequestForm   &operator=(const RobotomyRequestForm &obj);
 
     virtual void        execute(Bureaucrat const & executor) const;
 };
 
 #endif
+

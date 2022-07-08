@@ -45,5 +45,32 @@ ShrubberyCreationForm   &ShrubberyCreationForm::operator=(const ShrubberyCreatio
     return (*this);
 }
 
+void        ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+{
+    if (executor.getGrade() <= this->_requiredGradeToExec && this->_signed)
+    {
+        std::string shrub("_shrubbery");
+        shrub = this->_target + shrub;
+        std::ofstream   shrubfile(shrub.c_str());
+
+        shrubfile << "                                   " << std::endl;
+        shrubfile << "       ^             V      V      " << std::endl;
+        shrubfile << "             v          ^          " << std::endl;
+        shrubfile << "          /    ^                   " << std::endl;
+        shrubfile << "         $$ v          /           " << std::endl;
+        shrubfile << "       $$$  v  /      / v          " << std::endl;
+        shrubfile << "     /$/$   0 v$$v   /o  V         " << std::endl;
+        shrubfile << "     /$$$o    V$$ v /$$0  v        " << std::endl;
+        shrubfile << "    /$$$    V $ $vvV o   o v       " << std::endl;
+        shrubfile << "   $$$$     >  v   $$$  0   V      " << std::endl;
+        shrubfile << "  ^^^^^^^^^^^  ###^^^^    ^^^      " << std::endl;
+        shrubfile << "      ####         ^^#####         " << std::endl;
+    }
+    else if (!this->_signed)
+        throw FormNotSignException();
+    else
+        throw TooLowToExecException();
+}
+
 
 

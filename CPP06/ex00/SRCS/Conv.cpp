@@ -210,11 +210,11 @@ void	Conv::printFloat(float f)
 	else
 		std::cout << "int: " << static_cast<int>(f) << std::endl;
 	std::cout << "float: " << f;
-	if (roundf(f) == f)
+	if (roundf(f) == f && isnan(f))
 		std::cout << ".0";
 	std::cout << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(f);
-	if (roundf(f) == f)
+	if (roundf(f) == f && isnan(f))
 		std::cout << ".0";
 	std::cout << std::endl;
 }
@@ -232,11 +232,11 @@ void	Conv::printDouble(double f)
 	else
 		std::cout << "int: " << static_cast<int>(f) << std::endl;
 	std::cout << "float: " << static_cast<float>(f);
-	if (roundf(f) == f)
+	if (roundf(f) == f && isnan(f))
 		std::cout << ".0";
 	std::cout << "f" << std::endl;
 	std::cout << "double: " << f;
-	if (roundf(f) == f)
+	if (roundf(f) == f && isnan(f))
 		std::cout << ".0";
 	std::cout << std::endl;
 }

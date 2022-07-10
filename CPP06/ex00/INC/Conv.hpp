@@ -6,7 +6,7 @@
 /*   By: aachbaro <aachbaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 16:24:55 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/07/10 19:37:21 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/07/10 20:03:06 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <limits>
 # include <math.h>
 # include <cmath>
+# include <stdlib.h>
 
 class Conv
 {

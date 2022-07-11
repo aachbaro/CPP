@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                       :+:      :+:    :+:   */
+/*   CANON.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,33 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef CANON_HPP
+# define CANON_HPP
 # include <string.h>
 # include <iostream>
-# include "Brain.hpp"
 
-class AAnimal {
+class CANON {
 
-protected :
-
-    std::string _type;
+private :
 
 public :
 
-    AAnimal(void);
-    AAnimal(const AAnimal &obj);
-    virtual ~AAnimal(void);
-
-    AAnimal  &operator=(const AAnimal &obj);
-
-    std::string getType(void) const;
-    void        setType(const std::string &type);
-    virtual void    makeSound(void) const = 0;
-    virtual Brain   *getBrain(void) const = 0;
+    CANON(void);
+    CANON(const CANON &obj);
+    ~CANON(void);
+    CANON   &operator=(const CANON &obj);
+    
 };
 
 #endif
-
 
 

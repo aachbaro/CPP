@@ -20,7 +20,7 @@
 
 int main(void)
 {
-    //AAnimal     *test = new AAnimal;
+    // AAnimal     *test = new AAnimal;
     Cat         *src = new Cat;
     Cat         *cpy = new Cat;
 

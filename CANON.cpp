@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                       :+:      :+:    :+:   */
+/*   CANON.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aachbaro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,33 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
-# include <string.h>
-# include <iostream>
-# include "Brain.hpp"
+#include "../INC/CANON.hpp"
 
-class AAnimal {
+CANON::CANON(void)
+{
+    std::cout << "CANON default constructor called" << std::endl;
+    this->_value = 0;
+    return ;
+}
 
-protected :
+CANON::CANON(const CANON &obj)
+{
+    std::cout << "CANON copy constructor called" << std::endl;
+    *this = obj;
+    return ;
+}
 
-    std::string _type;
+CANON::~CANON(void)
+{
+    std::cout << "CANON destructor called" << std::endl;
+    return ;
+}
 
-public :
-
-    AAnimal(void);
-    AAnimal(const AAnimal &obj);
-    virtual ~AAnimal(void);
-
-    AAnimal  &operator=(const AAnimal &obj);
-
-    std::string getType(void) const;
-    void        setType(const std::string &type);
-    virtual void    makeSound(void) const = 0;
-    virtual Brain   *getBrain(void) const = 0;
-};
-
-#endif
-
+CANON   &CANON::operator=(const CANON &obj)
+{
+    std::cout << "CANON copy assignement coperator called" << std::endl;
+    return (*this);
+}
 
 

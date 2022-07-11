@@ -12,10 +12,29 @@
 
 #include "../INC/Animal.hpp"
 
+AAnimal::AAnimal(void)
+{
+    std::cout << "Animal default constructor called" << std::endl;   
+}
+
+AAnimal::AAnimal(const AAnimal &obj)
+{
+    std::cout << "Animal copy constructor called" << std::endl;
+    *this = obj;
+    return ;
+}
+
 AAnimal::~AAnimal(void)
 {
     std::cout << "Animal destructor called" << std::endl;
     return ;
+}
+
+AAnimal   &AAnimal::operator=(const AAnimal &obj)
+{
+    std::cout << "Animal copy assignement coperator called" << std::endl;
+    this->_type = obj.getType();
+    return (*this);
 }
 
 std::string    AAnimal::getType(void) const

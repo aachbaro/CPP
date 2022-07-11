@@ -45,7 +45,7 @@ Span &				Span::operator=( Span const & rhs )
 
 void	Span::addNumber(int n)
 {
-	if (this->_tab.size() <= this->_maxSize)
+	if (this->_tab.size() < this->_maxSize)
 		this->_tab.push_back(n);
 	else
 		throw std::overflow_error("Vector full");
@@ -75,6 +75,16 @@ unsigned int	Span::longestSpan() const
 		throw std::logic_error("Cannot use longestSpan with only two numbers");
 	sort(cpy._tab.begin(), cpy._tab.end());
 	return (*(cpy._tab.end() - 1) - *(cpy._tab.begin()));
+}
+
+void			Span::fillTab(int nbArg, ...)
+{
+	va_list ap;
+
+	va_start(ap, nbArg);
+	for (int i = 0; i < nbArg; i++)
+		this->addNumber(va_arg(ap, int));
+	va_end(ap);
 }
 
 /*

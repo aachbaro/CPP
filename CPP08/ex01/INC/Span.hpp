@@ -5,6 +5,7 @@
 # include <string>
 # include <vector>
 # include <algorithm>
+# include <cstdarg>
 
 class Span
 {
@@ -22,6 +23,7 @@ class Span
 		std::vector<int>	getTab();
 		unsigned int		shortestSpan() const;
 		unsigned int		longestSpan() const;
+		void				fillTab(int nbArg, ...);
 
 	private:
 		std::vector<int>	_tab;

@@ -1,4 +1,4 @@
-NAME		= serial
+NAME		= iter
 SRCSDIR		= .
 OBJSDIR		= objs
 INCLUDES	= .

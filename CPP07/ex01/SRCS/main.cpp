@@ -6,33 +6,23 @@
 /*   By: aachbaro <aachbaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 11:59:00 by aachbaro          #+#    #+#             */
-/*   Updated: 2022/07/11 12:14:45 by aachbaro         ###   ########.fr       */
+/*   Updated: 2022/07/11 14:57:14 by aachbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../INC/data.hpp"
+#include "../INC/iter.hpp"
 
-uintptr_t serialize(t_data* ptr)
-{
-	return (reinterpret_cast<uintptr_t>(ptr));
-}
-
-t_data	*deserialize(uintptr_t raw)
-{
-	return (reinterpret_cast<t_data*>(raw));
-}
 
 int main()
 {
-	t_data	*p = new t_data;
+	int		tab[] = { 24, 21 ,42 ,26};
+	float	tab2[] = { 52.2, 21.1, 871,2, 32, 4};
 
-	p->n = 42;
-
-	std::cout << p << " : " << p->n << std::endl;
-	std::cout << deserialize(serialize(p)) << " : ";
-	std::cout << p->n << std::endl;
-
-	delete p;
-
+	::iter(tab, 4, &whatever<int>);
+	::iter(tab2, 4, &whatever<float>);
+	for (int i = 0; i < 4; i++)
+		std::cout << tab[i] << std::endl;
+	for (int b = 0; b < 4; b++)
+		std::cout << tab2[b] << std::endl;
 	return 0;
 }

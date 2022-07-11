@@ -1,9 +1,8 @@
-NAME		= serial
+NAME		= array
 SRCSDIR		= .
 OBJSDIR		= objs
 INCLUDES	= .
-SRCS		= SRCS/main.cpp \
-				SRCS/Base.cpp
+SRCS		= SRCS/main.cpp
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
